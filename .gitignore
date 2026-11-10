@@ -28,3 +28,8 @@ figs/
 Thumbs.db
 .idea/
 .vscode/
+
+# --- curated example artifacts (small demo files are OK to commit) ----------
+!examples/
+!examples/**/*.xlsx
+!examples/**/*.csv
