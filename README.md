@@ -153,6 +153,17 @@ tstq train --config config.yaml --epochs 10 --top-n 20
 
 ---
 
+## 示例数据与结果（examples/）
+
+`examples/` 目录里放了：
+
+- `results.xlsx`：一次回测的输出示例（多 sheet：指标、分组、Top-N、对冲、非重叠等）
+- `comm_price_qfq.sample.csv` / `comm_daily_basic.sample.csv`：前复权日线与每日指标的**极小格式样本**（各 5 只股票）
+
+> ⚠️ 这些样本只用于**展示 CSV 格式 / 结果长什么样**，股票太少，**不能用于真实训练或回测**。
+> 要真正跑，请用 `tstq fetch` + `tstq qfq` 拉取完整数据（见「快速开始」）。
+> 请勿把完整行情数据提交到公开仓库。
+
 ## 换成你自己的主题
 
 在 `config.py`（或 `config.yaml`）里改 `boards` 即可换主题，例如：
