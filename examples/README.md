@@ -9,6 +9,9 @@
   - `nonoverlap_perf` / `nonoverlap_returns`：非重叠 5 日绩效
   - `features` / `factor_screen`：入模因子列表与因子质量筛选明细
 
+- `comm_price_qfq.sample.csv` — 前复权日线的**小型样例**（前 5 只股票，约 9300 行，约 1.2MB），
+  仅用于展示数据格式，**不能用于真实回测**。完整数据请自行 `tstq fetch` + `tstq qfq` 拉取。
+
 > 说明：完整的行情数据（`comm_price_qfq.csv` 等）体积很大，**不提交进仓库**。
 > 需要真实数据时请用 `tstq fetch` + `tstq qfq` 自行拉取，或把 `--data-dir`
 > 指向你本地的数据目录。请勿把大数据文件 / TuShare 原始数据提交到公开仓库。
