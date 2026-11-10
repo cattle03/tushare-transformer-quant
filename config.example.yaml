@@ -1,0 +1,62 @@
+# Example config. Copy to `config.yaml` and tweak, then run `tstq train --config config.yaml`.
+# Every field is optional; anything omitted falls back to the built-in default.
+
+# ---- data locations -------------------------------------------------------
+data_dir: data
+out_dir: outputs
+fig_dir: outputs/figs
+
+# ---- merged CSV file names (inside data_dir) ------------------------------
+price_file: comm_price_qfq.csv      # forward-adjusted daily bars -> model input
+basic_file: comm_daily_basic.csv
+universe_file: comm_universe.csv
+
+# ---- fetch settings -------------------------------------------------------
+start_date: "20190101"
+end_date: "20261107"
+fetch_sleep: 0.08
+max_retry: 5
+
+# Theme constituents: {name: THS board code}. Swap these for any other theme.
+boards:
+  5G: "885556.TI"
+  共封装光学(CPO): "886033.TI"
+  光纤概念: "886084.TI"
+  东数西算(算力): "885957.TI"
+  数据中心(AIDC): "885887.TI"
+  液冷服务器: "886044.TI"
+  算力租赁: "886050.TI"
+  卫星通信: "865176.TI"
+  通信设备: "881129.TI"
+  通信服务: "881162.TI"
+
+# ---- model / training -----------------------------------------------------
+split_date: "20250101"    # train < split_date, test > split_date
+seed: 42
+seq_len: 20               # history window (trading days) per sample
+batch_size: 512
+epochs: 5
+lr: 0.0005
+weight_decay: 0.0001
+d_model: 64
+nhead: 4
+num_layers: 2
+dim_ff: 128
+dropout: 0.1
+n_splits: 5
+target_scale: 100.0
+use_amp: true
+# num_workers: null       # null -> 0 on Windows, 4 elsewhere
+
+# ---- factor screening -----------------------------------------------------
+factor_screen_enable: true
+factor_eval_ret: ret5
+factor_top_k: 8
+factor_min_winrate: 0.50
+factor_max_mdd: -0.95
+factor_min_abs_icir: 0.05
+min_valid_ratio: 0.7
+
+# ---- backtest -------------------------------------------------------------
+top_n: 20
+non_overlap_step: 5

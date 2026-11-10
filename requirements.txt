@@ -1,0 +1,15 @@
+# Core
+pandas>=1.4
+numpy>=1.21
+tqdm>=4.60
+matplotlib>=3.5
+scikit-learn>=1.0
+
+# Deep learning
+torch>=2.0
+
+# Data source + IO
+tushare>=1.2
+pyarrow>=8.0
+openpyxl>=3.0
+pyyaml>=6.0
